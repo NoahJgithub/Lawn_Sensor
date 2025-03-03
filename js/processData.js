@@ -9,9 +9,10 @@ export default function processData(data) {
 
     let sumLat = 0, sumLng = 0;
     const classCounts = {};
+    const markers = []; // Array to store marker references
 
-    data.forEach(item => {
-        // Accumulate coordinates for average (if desired)
+    data.forEach((item, index) => {
+        // Accumulate coordinates for average
         sumLat += item.gps.lat;
         sumLng += item.gps.long;
 
@@ -33,14 +34,14 @@ export default function processData(data) {
           `;
         tableBody.appendChild(row);
 
-        // Create gallery item with extra details
+        // Create gallery item with image and button
         const imageContainer = document.createElement("div");
         imageContainer.classList.add("image-container");
+        imageContainer.dataset.index = index; // Store the index for reference
         imageContainer.innerHTML = `
             <img src="${item.image_path}" alt="${item.predicted_class}">
             <p><strong>${item.predicted_class}</strong></p>
-            <p>Health: ${(item.plantHealth * 100).toFixed(1)}%, Moisture: ${(item.moisture * 100).toFixed(1)}%, Height: ${item.plantHeight} cm</p>
-            <p>Leaf: ${item.leafColor}</p>
+            <button class="show-on-map-btn">Show on Map</button>
           `;
         gallery.appendChild(imageContainer);
     });
@@ -53,46 +54,9 @@ export default function processData(data) {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // Define custom icons based on plant type
-    const createCustomIcon = (plantType) => {
-        // Determine icon color based on plant type
-        let iconColor;
-        switch (plantType.toLowerCase()) {
-            case 'grass':
-                iconColor = 'green';
-                break;
-            case 'dandelion':
-            case 'clover':
-                iconColor = 'yellow';
-                break;
-            case 'crabgrass':
-            case 'weed':
-            case 'broadleaf':
-            case 'plantain':
-            case 'creeping charlie':
-            case 'thistle':
-                iconColor = 'red';
-                break;
-            case 'dead grass':
-                iconColor = 'gray';
-                break;
-            default:
-                iconColor = 'blue';
-        }
-
-        return L.divIcon({
-            className: `custom-marker ${iconColor}-marker`,
-            html: `<div class="marker-pin" style="background-color: ${iconColor}"></div>`,
-            iconSize: [30, 42],
-            iconAnchor: [15, 42]
-        });
-    };
-
-    data.forEach(item => {
-        // Create custom icon based on plant type
-        const icon = createCustomIcon(item.predicted_class);
-
-        // Create custom popup content with toggle functionality
+    // Add markers to the map
+    data.forEach((item, index) => {
+        // Create popup content
         const popupContent = `
             <div class="custom-popup">
                 <h3>${item.predicted_class}</h3>
@@ -107,32 +71,32 @@ export default function processData(data) {
                         <img src="${item.image_path}" alt="${item.predicted_class}">
                     </div>
                 </div>
-                <button class="toggle-view-btn">Toggle View</button>
             </div>
         `;
 
-        // Create the marker with custom icon
-        const marker = L.marker([item.gps.lat, item.gps.long], { icon: icon })
+        // Create marker
+        const marker = L.marker([item.gps.lat, item.gps.long])
             .addTo(map)
             .bindPopup(popupContent, {
                 maxWidth: 300,
                 className: 'custom-popup-container'
             });
 
-        // Add event listener after popup opens
-        marker.on('popupopen', function () {
-            setTimeout(() => {
-                const toggleBtn = document.querySelector('.toggle-view-btn');
-                const popupInfo = document.querySelector('.popup-info');
-                const popupImage = document.querySelector('.popup-image-container');
+        // Store marker reference in array
+        markers.push(marker);
+    });
 
-                if (toggleBtn) {
-                    toggleBtn.addEventListener('click', function () {
-                        popupInfo.style.display = popupInfo.style.display === 'none' ? 'block' : 'none';
-                        popupImage.style.display = popupImage.style.display === 'none' ? 'block' : 'none';
-                    });
-                }
-            }, 100);
+    // Add click event listeners to the Show on Map buttons in gallery
+    document.querySelectorAll('.show-on-map-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const containerElement = this.closest('.image-container');
+            const index = parseInt(containerElement.dataset.index);
+
+            if (markers[index]) {
+                // Open the popup for the corresponding marker
+                map.setView([data[index].gps.lat, data[index].gps.long], 18);
+                markers[index].openPopup();
+            }
         });
     });
 
