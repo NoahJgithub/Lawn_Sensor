@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
   <header>
     <div class="header-content">
       <h1>Drone Data Visualization</h1>
@@ -19,62 +20,65 @@
     </div>
   </header>
 
-  <!--            Table Panels          -->
-  <div class="panel" id="panel-table">
-    <h2>Data Table</h2>
-    <table id="data-table">
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th>Image Name</th>
-          <th>Plant Species</th>
-          <th>Health Index</th>
-          <th>Moisture Level</th>
-          <th>Height</th>
-          <th>Leaf Color</th>
-          <th>Latitude</th>
-          <th>Longitude</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </div>
+  <main class="container">
 
-  <!--       Map & Gallery Panels       -->
-  <div class="panel" id="panel-map-gallery">
-    <h2>Map & Gallery</h2>
-    <div class="map-gallery-container">
-      <div id="map"></div>
-      <div class="gallery-container">
-        <h3>Gallery</h3>
-        <div class="gallery" id="gallery"></div>
+    <!--       Map & Gallery Panels       -->
+    <div class="panel" id="panel-map-gallery">
+      <h2 class="panel-title">Map & Gallery</h2>
+      <div class="map-gallery-container">
+        <div id="map"></div>
+        <div class="gallery-container">
+          <h3>Gallery</h3>
+          <div class="gallery" id="gallery"></div>
+        </div>
       </div>
     </div>
-  </div>
+
+    <!--            Table Panels          -->
+    <div class="panel" id="panel-table">
+      <h2 class="panel-title">Data Table</h2>
+      <table id="data-table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Image Name</th>
+            <th>Plant Species</th>
+            <th>Health Index</th>
+            <th>Moisture Level</th>
+            <th>Height</th>
+            <th>Leaf Color</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <!--             Chart Panels              -->
+    <div class="panel" id="panel-chart">
+      <h2 class="panel-title">Chart View</h2>
+      <!-- Bar Chart -->
+      <div id="bar-chart"></div>
+      <!-- Pie Chart -->
+      <div id="pie-chart"></div>
+    </div>
 
 
-  <!--             Chart Panels              -->
-  <div class="panel" id="panel-chart">
-    <h2>Chart View</h2>
-    <!-- Bar Chart -->
-    <div id="bar-chart"></div>
-    <!-- Pie Chart -->
-    <div id="pie-chart"></div>
-  </div>
+    <!--               About Panel              -->
+    <div class="panel" id="panel-about">
+      <h2 class="panel-title">About This Project</h2>
+      <p>
+        This is the Lawn Sensor Capstone Project developed by Team SP25-29. The website visualizes drone data using a
+        modern, modular design.
+        Our drone captures images of various plant species in lawns and, using machine learning, classifies them while
+        measuring plant health, moisture, height, and leaf color.
+        Explore the detailed data table, interactive map and gallery, and a suite of charts for an in-depth view of your
+        lawn's vegetation.
+      </p>
+    </div>
 
-
-  <!--               About Panel              -->
-  <div class="panel" id="panel-about">
-    <h2>About This Project</h2>
-    <p>
-      This is the Lawn Sensor Capstone Project developed by Team SP25-29. The website visualizes drone data using a
-      modern, modular design.
-      Our drone captures images of various plant species in lawns and, using machine learning, classifies them while
-      measuring plant health, moisture, height, and leaf color.
-      Explore the detailed data table, interactive map and gallery, and a suite of charts for an in-depth view of your
-      lawn's vegetation.
-    </p>
-  </div>
+  </main>
 
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"

@@ -1,4 +1,10 @@
-/* Global Styles */
+/*                          Global Styles                          */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -7,7 +13,7 @@ body {
   color: #333;
 }
 
-/* Header Styles */
+/*                          Header Styles                          */
 header {
   margin-top: 40px;
   /* Space from the top edge */
@@ -32,26 +38,73 @@ header h1 {
   color: #666;
 }
 
-/* Panel Styles */
+/*                          Panel Styles                          */
 .panel {
   padding: 10px;
 }
 
-/* Data Table */
-table {
+.panel .panel-title {
+  color: #4CAF50;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/*                          Data Table                          */
+#data-table {
   width: 100%;
   max-width: 1000px;
+  max-height: 60vh;
   margin: 20px auto;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   background: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: auto;
+  display: block;
 }
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #4CAF50;
+}
+
 
 th,
 td {
   border: 1px solid #ddd;
   padding: 12px;
   text-align: left;
+}
+
+th:not(:last-child),
+td:not(:last-child) {
+  border-right: none;
+}
+
+tr:not(:last-child) td,
+tr:not(:last-child) th {
+  border-bottom: none;
+}
+
+thead tr:first-child th:first-child {
+  border-top-left-radius: 8px;
+}
+
+thead tr:first-child th:last-child {
+  border-top-right-radius: 8px;
+}
+
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
 }
 
 th {
@@ -69,7 +122,7 @@ tr:hover {
   border-radius: 4px;
 }
 
-/* Map & Gallery Flex Container */
+/*                           Map & Gallery Flex Container                         */
 .map-gallery-container {
   display: flex;
   gap: 10px;
@@ -124,7 +177,7 @@ tr:hover {
   font-size: 14px;
 }
 
-/* Chart Containers */
+/*                          Chart Containers                          */
 #bar-chart,
 #pie-chart {
   width: 100%;
@@ -136,7 +189,7 @@ tr:hover {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* About Panel */
+/*                                About Panel                         */
 #panel-about {
   max-width: 800px;
   margin: 20px auto;
