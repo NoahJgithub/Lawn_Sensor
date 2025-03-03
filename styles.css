@@ -202,3 +202,95 @@ tr:hover {
 #panel-about h2 {
   text-align: center;
 }
+
+/*                          Custom Map Markers                          */
+.custom-marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.marker-pin {
+  width: 20px;
+  height: 20px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  position: relative;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.green-marker .marker-pin {
+  background-color: #4CAF50;
+}
+
+.yellow-marker .marker-pin {
+  background-color: #FFEB3B;
+}
+
+.red-marker .marker-pin {
+  background-color: #F44336;
+}
+
+.gray-marker .marker-pin {
+  background-color: #9E9E9E;
+}
+
+.blue-marker .marker-pin {
+  background-color: #2196F3;
+}
+
+/*                          Custom Popup Styles                          */
+.custom-popup-container {
+  padding: 0;
+}
+
+.custom-popup {
+  padding: 10px;
+}
+
+.custom-popup h3 {
+  margin: 0 0 10px;
+  padding: 5px;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popup-info p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.popup-image-container {
+  text-align: center;
+}
+
+.popup-image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-view-btn {
+  display: block;
+  margin: 10px auto 0;
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-view-btn:hover {
+  background-color: #388E3C;
+}

@@ -53,10 +53,87 @@ export default function processData(data) {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
+    // Define custom icons based on plant type
+    const createCustomIcon = (plantType) => {
+        // Determine icon color based on plant type
+        let iconColor;
+        switch (plantType.toLowerCase()) {
+            case 'grass':
+                iconColor = 'green';
+                break;
+            case 'dandelion':
+            case 'clover':
+                iconColor = 'yellow';
+                break;
+            case 'crabgrass':
+            case 'weed':
+            case 'broadleaf':
+            case 'plantain':
+            case 'creeping charlie':
+            case 'thistle':
+                iconColor = 'red';
+                break;
+            case 'dead grass':
+                iconColor = 'gray';
+                break;
+            default:
+                iconColor = 'blue';
+        }
+
+        return L.divIcon({
+            className: `custom-marker ${iconColor}-marker`,
+            html: `<div class="marker-pin" style="background-color: ${iconColor}"></div>`,
+            iconSize: [30, 42],
+            iconAnchor: [15, 42]
+        });
+    };
+
     data.forEach(item => {
-        L.marker([item.gps.lat, item.gps.long])
+        // Create custom icon based on plant type
+        const icon = createCustomIcon(item.predicted_class);
+
+        // Create custom popup content with toggle functionality
+        const popupContent = `
+            <div class="custom-popup">
+                <h3>${item.predicted_class}</h3>
+                <div class="popup-content">
+                    <div class="popup-info">
+                        <p><strong>Health:</strong> ${(item.plantHealth * 100).toFixed(1)}%</p>
+                        <p><strong>Moisture:</strong> ${(item.moisture * 100).toFixed(1)}%</p>
+                        <p><strong>Height:</strong> ${item.plantHeight} cm</p>
+                        <p><strong>Leaf Color:</strong> ${item.leafColor}</p>
+                    </div>
+                    <div class="popup-image-container">
+                        <img src="${item.image_path}" alt="${item.predicted_class}">
+                    </div>
+                </div>
+                <button class="toggle-view-btn">Toggle View</button>
+            </div>
+        `;
+
+        // Create the marker with custom icon
+        const marker = L.marker([item.gps.lat, item.gps.long], { icon: icon })
             .addTo(map)
-            .bindPopup(`<strong>${item.predicted_class}</strong><br>Health: ${(item.plantHealth * 100).toFixed(1)}%<br>Moisture: ${(item.moisture * 100).toFixed(1)}%<br>Height: ${item.plantHeight} cm`);
+            .bindPopup(popupContent, {
+                maxWidth: 300,
+                className: 'custom-popup-container'
+            });
+
+        // Add event listener after popup opens
+        marker.on('popupopen', function () {
+            setTimeout(() => {
+                const toggleBtn = document.querySelector('.toggle-view-btn');
+                const popupInfo = document.querySelector('.popup-info');
+                const popupImage = document.querySelector('.popup-image-container');
+
+                if (toggleBtn) {
+                    toggleBtn.addEventListener('click', function () {
+                        popupInfo.style.display = popupInfo.style.display === 'none' ? 'block' : 'none';
+                        popupImage.style.display = popupImage.style.display === 'none' ? 'block' : 'none';
+                    });
+                }
+            }, 100);
+        });
     });
 
     buildCharts(classCounts);
