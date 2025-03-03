@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Drone Data Visualization</title>
-  
   <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  
+  <link rel="stylesheet" href="Leaflet/leaflet.css" />
   <!-- Local CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <header>
     <div class="header-content">
@@ -19,8 +18,8 @@
       <p class="subtitle">Lawn Sensor Capstone Project – Team SP25-29</p>
     </div>
   </header>
-  
-  <!-- Top Tab Bar -->
+
+  <!--                                     Top Tab Bar                                -->
   <nav class="tab-bar">
     <ul>
       <li class="tab active" data-tab="table">Data Table</li>
@@ -30,7 +29,7 @@
     </ul>
   </nav>
 
-  <!-- Panels -->
+  <!--                                     Table Panels                                -->
   <div class="panel" id="panel-table">
     <table id="data-table">
       <thead>
@@ -50,6 +49,7 @@
     </table>
   </div>
 
+  <!--                                     Map & Gallery Panels                                -->
   <div class="panel" id="panel-map-gallery" style="display:none;">
     <div class="map-gallery-container">
       <div id="map"></div>
@@ -60,6 +60,8 @@
     </div>
   </div>
 
+
+  <!--                                     Chart Panels                                -->
   <div class="panel" id="panel-chart" style="display:none;">
     <!-- Bar Chart -->
     <div id="bar-chart"></div>
@@ -69,21 +71,25 @@
     <div id="scatter-chart"></div>
   </div>
 
+
+  <!--                                     About Panel                                -->
   <div class="panel" id="panel-about" style="display:none;">
     <h2>About This Project</h2>
     <p>
-      This is the Lawn Sensor Capstone Project developed by Team SP25-29. The website visualizes drone data using a modern, modular design.
-      Our drone captures images of various plant species in lawns and, using machine learning, classifies them while measuring plant health, moisture, height, and leaf color.
-      Explore the detailed data table, interactive map and gallery, and a suite of charts for an in-depth view of your lawn’s vegetation.
+      This is the Lawn Sensor Capstone Project developed by Team SP25-29. The website visualizes drone data using a
+      modern, modular design.
+      Our drone captures images of various plant species in lawns and, using machine learning, classifies them while
+      measuring plant health, moisture, height, and leaf color.
+      Explore the detailed data table, interactive map and gallery, and a suite of charts for an in-depth view of your
+      lawn’s vegetation.
     </p>
   </div>
-  
+
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-          crossorigin=""></script>
-  
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <!-- Main script as module -->
   <script type="module" src="script.js"></script>
 </body>
+
 </html>
