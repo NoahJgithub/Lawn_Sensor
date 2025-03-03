@@ -1,5 +1,3 @@
-// Tab Bar Switching Logic
-import './js/tabSwitch.js';
 // Data Processing Logic
 import processData from './js/processData.js';
 

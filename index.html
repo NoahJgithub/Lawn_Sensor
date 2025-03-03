@@ -19,18 +19,9 @@
     </div>
   </header>
 
-  <!--                                     Top Tab Bar                                -->
-  <nav class="tab-bar">
-    <ul>
-      <li class="tab active" data-tab="table">Data Table</li>
-      <li class="tab" data-tab="map-gallery">Map &amp; Gallery</li>
-      <li class="tab" data-tab="chart">Chart View</li>
-      <li class="tab" data-tab="about">About</li>
-    </ul>
-  </nav>
-
-  <!--                                     Table Panels                                -->
+  <!--            Table Panels          -->
   <div class="panel" id="panel-table">
+    <h2>Data Table</h2>
     <table id="data-table">
       <thead>
         <tr>
@@ -49,31 +40,31 @@
     </table>
   </div>
 
-  <!--                                     Map & Gallery Panels                                -->
-  <div class="panel" id="panel-map-gallery" style="display:none;">
+  <!--       Map & Gallery Panels       -->
+  <div class="panel" id="panel-map-gallery">
+    <h2>Map & Gallery</h2>
     <div class="map-gallery-container">
       <div id="map"></div>
       <div class="gallery-container">
-        <h2>Gallery</h2>
+        <h3>Gallery</h3>
         <div class="gallery" id="gallery"></div>
       </div>
     </div>
   </div>
 
 
-  <!--                                     Chart Panels                                -->
-  <div class="panel" id="panel-chart" style="display:none;">
+  <!--             Chart Panels              -->
+  <div class="panel" id="panel-chart">
+    <h2>Chart View</h2>
     <!-- Bar Chart -->
     <div id="bar-chart"></div>
     <!-- Pie Chart -->
     <div id="pie-chart"></div>
-    <!-- Scatter Plot: Plant Height vs. Moisture -->
-    <div id="scatter-chart"></div>
   </div>
 
 
-  <!--                                     About Panel                                -->
-  <div class="panel" id="panel-about" style="display:none;">
+  <!--               About Panel              -->
+  <div class="panel" id="panel-about">
     <h2>About This Project</h2>
     <p>
       This is the Lawn Sensor Capstone Project developed by Team SP25-29. The website visualizes drone data using a
