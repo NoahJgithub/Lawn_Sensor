@@ -3,6 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: #4CAF50 rgba(233, 247, 233, 0.8);
 }
 
 body {
@@ -11,6 +13,32 @@ body {
   /* Warm gradient background */
   background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
   color: #333;
+}
+
+/*                          Global Scrollbar Style                          */
+/* WebKit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(233, 247, 233, 0.8);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4CAF50;
+  border-radius: 10px;
+  border: 2px solid rgba(233, 247, 233, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #388E3C;
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(233, 247, 233, 0.8);
 }
 
 /*                          Header Styles                          */
@@ -54,16 +82,19 @@ header h1 {
 /*                          Data Table                          */
 #data-table {
   width: 100%;
-  max-width: 1000px;
-  max-height: 60vh;
+  max-width: 1200px;
+  max-height: 300px;
   margin: 20px auto;
   border-collapse: separate;
   border-spacing: 0;
   background: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
   overflow: auto;
   display: block;
+  overflow-y: auto;
+  max-height: 60vh;
+  scrollbar-width: thin;
+  scrollbar-color: #4CAF50 rgba(233, 247, 233, 0.8);
 }
 
 thead {
@@ -71,8 +102,16 @@ thead {
   top: 0;
   z-index: 1;
   background-color: #4CAF50;
+  width: 100%;
+  display: table;
+  table-layout: fixed;
 }
 
+tbody {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
 
 th,
 td {
@@ -89,22 +128,6 @@ td:not(:last-child) {
 tr:not(:last-child) td,
 tr:not(:last-child) th {
   border-bottom: none;
-}
-
-thead tr:first-child th:first-child {
-  border-top-left-radius: 8px;
-}
-
-thead tr:first-child th:last-child {
-  border-top-right-radius: 8px;
-}
-
-tbody tr:last-child td:first-child {
-  border-bottom-left-radius: 8px;
-}
-
-tbody tr:last-child td:last-child {
-  border-bottom-right-radius: 8px;
 }
 
 th {
@@ -145,6 +168,8 @@ tr:hover {
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  scrollbar-width: thin;
+  scrollbar-color: #4CAF50 rgba(233, 247, 233, 0.8);
 }
 
 .gallery-container h3 {
@@ -181,7 +206,7 @@ tr:hover {
 #bar-chart,
 #pie-chart {
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 20px auto;
   background: #fff;
   padding: 20px;
@@ -191,7 +216,7 @@ tr:hover {
 
 /*                                About Panel                         */
 #panel-about {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 20px auto;
   background: #fff;
   padding: 20px;
