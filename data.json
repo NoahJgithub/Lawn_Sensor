@@ -6,7 +6,10 @@
     "moisture": 0.85,
     "plantHeight": 15,
     "leafColor": "Bright Green",
-    "gps": { "lat": 40.5000, "long": -74.4500 },
+    "gps": {
+      "lat": 40.5102,
+      "long": -74.4405
+    },
     "image_path": "images/img_001.jpg"
   },
   {
@@ -16,7 +19,10 @@
     "moisture": 0.80,
     "plantHeight": 10,
     "leafColor": "Green",
-    "gps": { "lat": 40.5005, "long": -74.4505 },
+    "gps": {
+      "lat": 40.5085,
+      "long": -74.4512
+    },
     "image_path": "images/img_002.jpg"
   },
   {
@@ -26,7 +32,10 @@
     "moisture": 0.65,
     "plantHeight": 25,
     "leafColor": "Light Green",
-    "gps": { "lat": 40.4995, "long": -74.4495 },
+    "gps": {
+      "lat": 40.5078,
+      "long": -74.4458
+    },
     "image_path": "images/img_003.jpg"
   },
   {
@@ -36,7 +45,10 @@
     "moisture": 0.90,
     "plantHeight": 20,
     "leafColor": "Vibrant Green",
-    "gps": { "lat": 40.5002, "long": -74.4502 },
+    "gps": {
+      "lat": 40.5099,
+      "long": -74.4542
+    },
     "image_path": "images/img_004.jpg"
   },
   {
@@ -46,7 +58,10 @@
     "moisture": 0.70,
     "plantHeight": 30,
     "leafColor": "Yellowish Green",
-    "gps": { "lat": 40.5007, "long": -74.4507 },
+    "gps": {
+      "lat": 40.5103,
+      "long": -74.4563
+    },
     "image_path": "images/img_005.jpg"
   },
   {
@@ -56,7 +71,10 @@
     "moisture": 0.40,
     "plantHeight": 18,
     "leafColor": "Brown",
-    "gps": { "lat": 40.4998, "long": -74.4500 },
+    "gps": {
+      "lat": 40.5089,
+      "long": -74.4465
+    },
     "image_path": "images/img_006.jpg"
   },
   {
@@ -66,7 +84,10 @@
     "moisture": 0.75,
     "plantHeight": 22,
     "leafColor": "Green",
-    "gps": { "lat": 40.5003, "long": -74.4498 },
+    "gps": {
+      "lat": 40.5132,
+      "long": -74.4535
+    },
     "image_path": "images/img_007.jpg"
   },
   {
@@ -76,7 +97,10 @@
     "moisture": 0.68,
     "plantHeight": 12,
     "leafColor": "Light Green",
-    "gps": { "lat": 40.5001, "long": -74.4501 },
+    "gps": {
+      "lat": 40.5130,
+      "long": -74.4565
+    },
     "image_path": "images/img_008.jpg"
   },
   {
@@ -86,7 +110,10 @@
     "moisture": 0.50,
     "plantHeight": 28,
     "leafColor": "Purple",
-    "gps": { "lat": 40.4999, "long": -74.4503 },
+    "gps": {
+      "lat": 40.5160,
+      "long": -74.4530
+    },
     "image_path": "images/img_009.jpg"
   },
   {
@@ -96,7 +123,10 @@
     "moisture": 0.77,
     "plantHeight": 16,
     "leafColor": "Green",
-    "gps": { "lat": 40.5004, "long": -74.4502 },
+    "gps": {
+      "lat": 40.5135,
+      "long": -74.4505
+    },
     "image_path": "images/img_010.jpg"
   }
 ]
