@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Overlay Toggle</title>
@@ -43,6 +45,11 @@
     <button type="button" onclick="generateFrames()">Generate Frames</button>
     <button type="button" onclick="runTest()">Generate Images from this Frame</button>
     <p>Result: <span id='result'></span></p>
+    <py-script>
+    import numpy as np
+    arr = np.array([3, 3, 4, 8])
+    print("Square values:", np.square(arr))
+    </py-script>
     <script>
         async function generateFrames() {
             event.preventDefault();
